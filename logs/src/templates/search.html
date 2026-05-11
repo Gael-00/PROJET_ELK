@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Annuaire Interne - Recherche</title>
+</head>
+<body>
+    <h2>Recherche d'utilisateur</h2>
+    <form method="GET" action="/search/">
+        <input type="text" name="username" placeholder="Entrez un nom...">
+        <button type="submit">Rechercher</button>
+    </form>
+
+    {% if input %}
+        <p>Résultats pour : <strong>#{{ input }}</strong></p>
+    {% endif %}
+
+    <ul>
+        {% for user in result %}
+            <li>Utilisateur  trouvé : {{ user.0 }}</li>
+        {% empty %}
+            <li>Aucun utilisateur trouvé.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
