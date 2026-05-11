@@ -115,6 +115,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 
 
 LOGGING = {
@@ -123,13 +126,14 @@ LOGGING = {
         'file':{
             'level': 'INFO',
             'class': 'logging.FileHandler',
-            'filename': 'F:/PROJET_ELK/logs/django_access.log',
+            'filename': os.path.join(BASE_DIR,'django_access.log'),
         },
     },
     'loggers': {
         'django': {
             'handlers':['file'],
             'level': 'INFO',
+            'propagate': True,
         },
     },
 }

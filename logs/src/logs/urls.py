@@ -17,9 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from .views import search_user
+from .views import search_user, equipe
 
 urlpatterns = [
     path('search/', search_user, name='search'),
+    path('equipe/', equipe, name='equipe'),
     path('admin/', admin.site.urls),
 ]

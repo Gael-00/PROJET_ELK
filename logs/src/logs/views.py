@@ -14,3 +14,13 @@ def search_user(request):
     return render(request, 'search.html', {'result': result, 'input': user_input})
 
 
+def equipe(request):
+    membres = [
+        {"nom": "MPINDA KANULAMBI GAEL", "role": "Responsable de l'infrastructure Docker", "photo": "Images/equipe/Gael.png"},
+        {"nom": "MVUEZOLO TSHITSHI JORDAN", "role": "Concepteur du Dashboard React et de l'intégration API", "photo": "Images/equipe/Jordan.jpg"},
+        {"nom": "ONGENDANGENDA ONAKUNDJI ALPHONSE", "role": "Spécialiste des vecteurs d'attaques XSS et SQL Injection", "photo": "Images/equipe/Alphonse.jpg"},
+        {"nom": "AZIDAMA EGAO BELVINE", "role": "Responsable deploiement et Tests", "photo": "Images/equipe/Belvine.jpg"},
+        {"nom": "MULANGA MUYA ASNATH", "role": "Redaction du rapport et de la présentation!", "photo": "Images/equipe/Asnath.jpg"}
+
+    ]  
+    return render(request, 'equipe.html', {'membres':membres})
