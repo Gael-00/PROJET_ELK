@@ -35,3 +35,14 @@ services:
       - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
     depends_on:
       - elasticsearch
+
+
+
+  dashboard-jordan:
+    build: ./Api-dashboard
+    container_name: dashboard_jordan
+    ports:
+      - "3000:3000" # Pour React
+      - "5000:5000" # Pour l'API Node (si c'est son port)
+    depends_on:
+      - elasticsearch
