@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-p3)2g5njcr4#)pu9lr5_r=mrb_+nqb3fzuu=q9*7efckz+fywj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.onrender.com']
 
 
 # Application definition
@@ -121,19 +121,21 @@ STATICFILES_DIRS = [
 
 
 LOGGING = {
-    'version':1,
-    'handlers':{
-        'file':{
-            'level': 'INFO',
-            'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR,'django_access.log'),
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'logstash': {
+            'level': 'DEBUG',
+            'class': 'logstash_async.handler.AsynchronousLogstashHandler',
+            'host': 'IP_DE_L_ASSISTANT_OU_NGROK', 
+            'port': 5044,
+            'database_path': '{}/logstash.db'.format(BASE_DIR),
         },
     },
     'loggers': {
         'django': {
-            'handlers':['file'],
+            'handlers': ['logstash'],
             'level': 'INFO',
-            'propagate': True,
         },
     },
 }
