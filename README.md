@@ -30,3 +30,13 @@ AZIDAMA EGAO BELVINE (Déploiement)
 
 MULANGA MUYA ASNATH (Rédaction & Présentation)
 
+
+# Guide de navigation
+
+Notre plateforme est structurée autour de deux fonctionnalités principales accessibles via les menus de navigation :
+
+Présentation de l'équipe (/equipe/) : Cette page présente les membres du projet et leurs rôles respectifs (Infrastructure Docker, Dashboard React, Audit de sécurité, etc.).
+
+Interface de recherche (/search/) : C'est ici que s'effectue la démonstration technique. Cette interface permet d'interroger la base de données SOC pour filtrer et analyser les événements de sécurité.
+
+Note technique : Le backend Django est couplé à une pile ELK. Les interactions sur le site génèrent des flux de logs envoyés vers Logstash pour une surveillance en temps réel.
